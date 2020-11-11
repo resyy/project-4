@@ -29,3 +29,5 @@ Route::get('registrasi', [AuthController::class, 'registrasi']);
 
 
 Route::get('admin/produk', [ProdukController::class, 'index']);
+Route::get('admin/produk/create', [ProdukController::class, 'create']);
+Route::post('produk', [ProdukController::class, 'store']);
