@@ -24,6 +24,8 @@ Route::get('/', function () {
 
 Route::get('admin/beranda', [HomeController::class, 'showBeranda']);
 Route::get('admin/kategori', [HomeController::class, 'showKategori']);
-Route::get('admin/produk', [HomeController::class, 'showProduk']);
 Route::get('login', [AuthController::class, 'showLogin']);
 Route::get('registrasi', [AuthController::class, 'registrasi']);
+
+
+Route::get('admin/produk', [ProdukController::class, 'index']);
