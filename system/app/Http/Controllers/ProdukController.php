@@ -12,7 +12,8 @@ class ProdukController extends Controller
 	
 	function index()
 	{
-		return view('admin/produk/index');
+		$data['list_produk'] = Produk::all();
+		return view('admin/produk/index', $data);
 	}
 	
 	function create()
@@ -34,9 +35,10 @@ class ProdukController extends Controller
 		return redirect('admin/produk');
 	}
 	
-	function show()
+	function show($produk)
 	{
-		
+		$data['produk'] = Produk::find($produk);
+		return view('admin/produk/show', $data);
 	}
 	
 	function edit()
