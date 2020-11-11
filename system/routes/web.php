@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,45 +21,9 @@ Route::get('/', function () {
     return view('admin.beranda');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/registrasi', function () {
-    return view('registrasi');
-});
-
-Route::get('template', function(){
-	return view('template.base');
-});
 
 Route::get('admin/beranda', [HomeController::class, 'showBeranda']);
 Route::get('admin/kategori', [HomeController::class, 'showKategori']);
-Route::get('admin/login', [HomeController::class, 'login']);
-Route::get('admin/registrasi', [HomeController::class, 'registrasi']);
-
-Route::get('admin/produk/', [ProdukController::class, 'index']);
-Route::get('admin/produk/create', [ProdukController::class, 'create']);
-
-
-
-
-Route::get('user/', function(){
-	return view('user.index');
-});
-
-Route::get('user/kategori', function(){
-	return view('user.kategori');
-});
-
-Route::get('user/produk', function(){
-	return view('user.produk');
-});
-
-Route::get('user/login', function(){
-	return view('user.login');
-});
-
-Route::get('user/registrasi', function(){
-	return view('user.registrasi');
-});
+Route::get('admin/produk', [HomeController::class, 'showProduk']);
+Route::get('login', [AuthController::class, 'showLogin']);
+Route::get('registrasi', [AuthController::class, 'registrasi']);
