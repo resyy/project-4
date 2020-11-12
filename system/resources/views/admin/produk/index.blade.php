@@ -32,7 +32,7 @@
 									<div class="btn-group" role="group" aria-label="Basic example">
 									  <a href="{{url('admin/produk/detail', $produk->id)}}" class="btn btn-dark btn-sm"><i class="fa fa-info-circle"></i></a>
 									  <a href="{{url('admin/produk/edit', $produk->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-									  <a href="{{url('admin/produk/hapus', $produk->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+									  @include('template.utils.delete', ['url' => url('admin/produk', $produk->id)])
 									</div>
 								</td>
 								<td>{{$produk->brand}}</td>

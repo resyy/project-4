@@ -32,7 +32,7 @@ class ProdukController extends Controller
 		$produk->deskripsi = request('deskripsi');
 		$produk->save();
 
-		return redirect('admin/produk');
+		return redirect('admin/produk')->with('success', 'Data Berhasil di Tambahkan');
 	}
 	
 	function show(Produk $produk)
@@ -58,11 +58,13 @@ class ProdukController extends Controller
 		$produk->deskripsi = request('deskripsi');
 		$produk->save();
 
-		return redirect('admin/produk');
+		return redirect('admin/produk')->with('success', 'Data Berhasil di Update');
 	}
 	
-	function destory()
+	function destory(Produk $produk)
 	{
-		
+		$produk->delete();
+
+		return redirect('admin/produk')->with('danger', 'Data Berhasil di Hapus');
 	}
 }
