@@ -37,7 +37,7 @@
 								</td>
 								<td>{{$produk->brand}}</td>
 								<td>{{$produk->nama}}</td>
-								<td>{{$produk->harga}}</td>
+								<td>Rp. {{number_format($produk->harga)}}</td>
 								<td>{{$produk->stok}}</td>
 								<td>{{$produk->kategori}}</td>
 							</tr>

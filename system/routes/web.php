@@ -32,3 +32,5 @@ Route::get('admin/produk', [ProdukController::class, 'index']);
 Route::get('admin/produk/create', [ProdukController::class, 'create']);
 Route::post('admin/produk', [ProdukController::class, 'store']);
 Route::get('admin/produk/detail/{produk}', [ProdukController::class, 'show']);
+Route::get('admin/produk/edit/{produk}', [ProdukController::class, 'edit']);
+Route::put('admin/produk/{produk}', [ProdukController::class, 'update']);

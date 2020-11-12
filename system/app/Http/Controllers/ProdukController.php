@@ -35,20 +35,30 @@ class ProdukController extends Controller
 		return redirect('admin/produk');
 	}
 	
-	function show($produk)
+	function show(Produk $produk)
 	{
-		$data['produk'] = Produk::find($produk);
+		$data['produk'] = $produk;
 		return view('admin/produk/show', $data);
 	}
 	
-	function edit()
+	function edit(Produk $produk)
 	{
+		$data['produk'] = $produk;
+		return view('admin/produk/edit', $data);
 		
 	}
 	
-	function update()
+	function update(Produk $produk)
 	{
-		
+		$produk->brand = request('brand');
+		$produk->nama = request('nama');
+		$produk->harga = request('harga');
+		$produk->stok = request('stok');
+		$produk->kategori = request('kategori');
+		$produk->deskripsi = request('deskripsi');
+		$produk->save();
+
+		return redirect('admin/produk');
 	}
 	
 	function destory()
