@@ -40,6 +40,13 @@
         <section class="page-section bg-dark text-white" id="team">
             <div class="container">
                 <div class="text-center">
+                    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          @include('template.utils.notif')
+        </div>
+      </div>
+    </div>
                     <h2 class="section-heading text-uppercase">Beli Barang</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
@@ -48,8 +55,9 @@
                     <div class="col-lg-12">
                         <div class="">
                             
-                            <form action="{{url('keranjang')}}" method="post">
+                            <form action="{{url('checkout', $produk->id)}}" method="post">
                                 @csrf
+                                @method("PUT")
                               <div class="form-row">
                                 <div class="form-group col-md-8">
                                   <label for="inputPassword4">Nama Produk</label>
@@ -65,23 +73,14 @@
                                 </div>
                                     </div>
                                 <div class="form-group col-md-2">
-                                  <label for="stok">Stok Tersedia</label>
-                                  <input type="number" class="form-control" id="stok" name="stok" value="{{$produk->stok}}" readonly="">
-                                </div>
-                                <div class="form-group col-md-2">
                                   <label for="jumlah">Jumlah</label>
-                                  <input type="number" min="1" max="{{$produk->stok}}" class="form-control" id="jumlah" name="jumlah" required="">
+                                  <input type="number" min="1" class="form-control" id="jumlah" name="jumlah" required="" value="{{$produk->jumlah}}">
                                 </div>
                               </div>
 
-                              <button type="submit" class="btn btn-info"><i class="fa fa-lock"></i> Checkout</button>
+                              <button type="submit" class="btn btn-info"><i class="fa fa-lock"></i> Ubah</button>
 
-                              <div class="form-row mt-2">
-                                <div class="form-group col-md-8">
-                                  <label for="desk">Deskripsi</label>
-                                  <textarea id="desk" class="form-control" rows="10" readonly="">{{$produk->deskripsi}}</textarea>
-                                </div>
-                              </div>
+                              
                               
                             </form>
                         </div>

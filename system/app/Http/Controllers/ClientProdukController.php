@@ -16,6 +16,12 @@ class ClientProdukController extends Controller
 		$data['list_produk'] = Produk::all();
 		return view('user/index', $data);
 	}
+
+	function checkout()
+	{
+		$data['list_belanja'] = ClientProduk::all();
+		return view('user/checkout', $data);
+	}
 	
 	function create(Produk $produk)
 	{
@@ -38,10 +44,10 @@ class ClientProdukController extends Controller
 	function show(Produk $produk)
 	{
 		$data['produk'] = $produk;
-		return view('user/show', $data);
+		return view('user/detail', $data);
 	}
 	
-	function edit(Produk $produk)
+	function edit(ClientProduk $produk)
 	{
 		$data['produk'] = $produk;
 		return view('user/edit', $data);
@@ -50,19 +56,18 @@ class ClientProdukController extends Controller
 	
 	function update(ClientProduk $produk)
 	{
-		$check->nama = request('nama');
-		$check->produk = request('produk');
-		$check->harga = request('harga');
-		$check->jumlah = request('jumlah');
-		$check->save();
+		$produk->nama = request('nama');
+		$produk->harga = request('harga');
+		$produk->jumlah = request('jumlah');
+		$produk->save();
 
-		return redirect('keranjang')->with('success', 'Barang Berhasil di Ubah pada Keranjang');
+		return redirect('checkout')->with('success', 'Barang Berhasil di Ubah pada Keranjang');
 	}
 	
-	function destory(ClientProduk $produk)
+	function destroy(ClientProduk $produk)
 	{
 		$produk->delete();
 
-		return redirect('admin/produk')->with('danger', 'Data Berhasil di Hapus');
+		return redirect('checkout')->with('danger', 'Barang Berhasil di Hapus dari Keranjang');
 	}
 }

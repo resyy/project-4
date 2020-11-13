@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,22 +26,20 @@
                     Menu
                     <i class="fas fa-bars ml-1"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ml-auto">
+                <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('/')}}">Beranda</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('/')}}">Produk</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Keranjang</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Produk</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('user/checkout')}}">Keranjang</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('admin/login')}}">Login</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('admin/registrasi')}}">Registrasi</a></li>
                     </ul>
-                </div>
             </div>
         </nav>
         <!-- Team-->
         <section class="page-section bg-dark text-white" id="team">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Beli Barang</h2>
+                    <h2 class="section-heading text-uppercase">Detail Barang</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
                 <div class="row">
@@ -48,8 +47,7 @@
                     <div class="col-lg-12">
                         <div class="">
                             
-                            <form action="{{url('keranjang')}}" method="post">
-                                @csrf
+                            <form action="{{url('keranjang', $produk->id)}}" method="post">
                               <div class="form-row">
                                 <div class="form-group col-md-8">
                                   <label for="inputPassword4">Nama Produk</label>
@@ -68,13 +66,9 @@
                                   <label for="stok">Stok Tersedia</label>
                                   <input type="number" class="form-control" id="stok" name="stok" value="{{$produk->stok}}" readonly="">
                                 </div>
-                                <div class="form-group col-md-2">
-                                  <label for="jumlah">Jumlah</label>
-                                  <input type="number" min="1" max="{{$produk->stok}}" class="form-control" id="jumlah" name="jumlah" required="">
-                                </div>
                               </div>
 
-                              <button type="submit" class="btn btn-info"><i class="fa fa-lock"></i> Checkout</button>
+                              <a href="{{url('keranjang', $produk->id)}}" class="btn btn-info"><i class="fa fa-shopping-cart"></i> Masukan Keranjang</a>
 
                               <div class="form-row mt-2">
                                 <div class="form-group col-md-8">

@@ -61,7 +61,7 @@ class ProdukController extends Controller
 		return redirect('admin/produk')->with('success', 'Data Berhasil di Update');
 	}
 	
-	function destory(Produk $produk)
+	function destroy(Produk $produk)
 	{
 		$produk->delete();
 

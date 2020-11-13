@@ -28,10 +28,10 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('/')}}">Beranda</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Kategori</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Produk</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Login</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Registrasi</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Produk</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('checkout')}}">Checkout</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('admin/login')}}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('admin/registrasi')}}">Registrasi</a></li>
                     </ul>
                 </div>
             </div>
