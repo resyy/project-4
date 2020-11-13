@@ -7,18 +7,31 @@
 		<div class="col-md-12 my-5">
 			<div class="card">
 				<div class="card-header">
-					Detail Produk
+					Detail Pada Kategori {{$kategori->nama}}
 				</div>
 				<div class="card-body">
-					<div class="jumbotron">
-					  <h1 class="display-5">{{$produk->nama}}</h1><hr>
-						Kategori : {{$produk->kategori}}
-					  <p class="lead"><strong class="text-dark">Stok Tersedia <b>{{$produk->stok}}</b> | Harga Rp. {{number_format($produk->harga)}} </strong></p>
-					  <hr class="my-4">
-					  <p>Deskripsi Produk : <br>
-					  	{!! nl2br($produk->deskripsi) !!}</p>
-					  <a class="btn btn-success btn-sm" href="#" role="button">Masukkan Keranjang</a>
-					</div>
+					<table class="table table-hover table-responsive">
+					  <thead class="thead-dark">
+					    <tr>
+					      <th scope="col">No</th>
+					      <th scope="col">Aksi</th>
+					      <th scope="col">Nama Produk</th>
+					      <th scope="col">Harga Produk</th>
+					      <th scope="col">Stok roduk</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <th scope="row">{{$kategori->id}}</th>
+					      <td>
+					      	<a href="{{url('admin/produk')}}" class="btn btn-dark btn-sm"><i class="fa fa-eye"></i></a>
+					      </td>
+					      <td>{{$kategori->nama}}</td>
+					      <td>@mdo</td>
+					      <td>@mdo</td>
+					    </tr>
+					  </tbody>
+					</table>
 				</div>
 			</div>
 		</div>

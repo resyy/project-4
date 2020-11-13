@@ -32,13 +32,13 @@ class KategoriController extends Controller
 	
 	function show(Kategori $kategori)
 	{
-		$data['Kategori'] = $kategori;
+		$data['kategori'] = $kategori;
 		return view('admin/kategori/show', $data);
 	}
 	
 	function edit(Kategori $kategori)
 	{
-		$data['Kategori'] = $kategori;
+		$data['kategori'] = $kategori;
 		return view('admin/kategori/edit', $data);
 		
 	}
