@@ -5,7 +5,7 @@ namespace App\Models;
 /**
  * 
  */
-class Produk extends Model
+class Kategori extends Model
 {
 	
 	protected $table = 'kategori';
