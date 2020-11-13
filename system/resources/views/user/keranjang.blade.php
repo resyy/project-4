@@ -36,33 +36,58 @@
                 </div>
             </div>
         </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container">
-                <div class="masthead-subheading">Welcome To Our Store!</div>
-                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#team">Yuk Belanja</a>
-            </div>
-        </header>
         <!-- Team-->
         <section class="page-section bg-light" id="team">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Produk Kami</h2>
+                    <h2 class="section-heading text-uppercase">Keranjang</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
                 <div class="row">
-                    @foreach($list_produk as $produk)
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="{{url('public')}}/assets/img/team/1.jpg" alt="" />
-                            <h4>{{$produk->nama}}</h4>
-                            <p class="text-muted">Rp. {{number_format($produk->harga)}} | Stok : {{$produk->stok}}</p>
-                            <a class="btn btn-dark btn-social mx-2" href="{{url('detail', $produk->id)}}"><i class="fa fa-info"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="{{url('keranjang', $produk->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                    
+                    <div class="col-lg-12">
+                        <div class="">
+                            <form action="{{url('keranjang', $produk->id)}}" method="post">
+                                @csrf
+                              <div class="form-row">
+                                <div class="form-group col-md-8">
+                                  <label for="inputPassword4">Nama Produk</label>
+                                  <input type="text" class="form-control" id="inputPassword4" name="nama" value="{{$produk->nama}}" readonly="">
+                                </div>
+                              </div>
+                              <div class="form-row">
+                                <div class="form-group col-md-4">
+                                  <label for="harga">Harga Produk</label>
+                                  <div class="input-group-prepend">
+                                      <div class="input-group-text">Rp.</div>
+                                  <input type="email" class="form-control" id="harga" name="harga" value="{{$produk->harga}}" readonly="">
+                                </div>
+                                    </div>
+                                <div class="form-group col-md-2">
+                                  <label for="stok">Stok Tersedia</label>
+                                  <input type="number" class="form-control" id="stok" name="stok" value="{{$produk->stok}}" readonly="">
+                                </div>
+                                <div class="form-group col-md-2">
+                                  <label for="jumlah">Jumlah</label>
+                                  <input type="number" min="1" max="{{$produk->stok}}" class="form-control" id="jumlah" name="jumlah" required="">
+                                </div>
+                                <div class="form-group col-md-2">
+                                  <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{date('d-M-Y')}}" hidden="">
+                                </div>
+                              </div>
+
+                              <button type="submit" class="btn btn-info">Checkout</button>
+
+                              <div class="form-row mt-2">
+                                <div class="form-group col-md-8">
+                                  <label for="desk">Deskripsi</label>
+                                  <textarea id="desk" class="form-control" rows="45" readonly="">{{$produk->deskripsi}}</textarea>
+                                </div>
+                              </div>
+                              
+                            </form>
                         </div>
                     </div>
-                @endforeach
                 </div>
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>

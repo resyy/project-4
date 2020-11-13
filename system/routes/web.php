@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\ClientProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,6 @@ use App\Http\Controllers\KategoriController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('admin.beranda');
-});
 
 // Halaman Admin
 Route::get('admin/beranda', [HomeController::class, 'showBeranda']);
@@ -43,3 +40,11 @@ Route::post('admin/kategori', [KategoriController::class, 'store']);
 Route::get('admin/kategori/detail/{kategori}', [KategoriController::class, 'show']);
 Route::get('admin/kategori/edit/{kategori}', [KategoriController::class, 'edit']);
 Route::put('admin/kategori/{kategori}', [KategoriController::class, 'update']);
+
+// Halaman Client
+Route::get('/', [ClientProdukController::class, 'index']);
+Route::get('keranjang/{produk}', [ClientProdukController::class, 'create']);
+Route::post('keranjang', [ClientProdukController::class, 'store']);
+Route::get('detail/{produk}', [ClientProdukController::class, 'show']);
+Route::get('produk/edit/{produk}', [ClientProdukController::class, 'edit']);
+Route::put('produk/{produk}', [ClientProdukController::class, 'update']);
