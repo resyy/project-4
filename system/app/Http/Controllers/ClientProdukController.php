@@ -23,15 +23,16 @@ class ClientProdukController extends Controller
 		return view('user/keranjang', $data);
 	}
 	
-	function store()
+	function store(Produk $produk)
 	{
+		$data['produk'] = $produk;
 		$check = new ClientProduk;
 		$check->nama = request('nama');
 		$check->harga = request('harga');
 		$check->jumlah = request('jumlah');
 		$check->save();
 
-		return redirect('keranjang')->with('success', 'Barang Berhasil di Masukan ke Keranjang');
+		return redirect('/')->with('success', 'Barang Berhasil di Masukan ke Keranjang');
 	}
 	
 	function show(Produk $produk)

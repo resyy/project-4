@@ -37,7 +37,7 @@
             </div>
         </nav>
         <!-- Team-->
-        <section class="page-section bg-light" id="team">
+        <section class="page-section bg-dark text-white" id="team">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Keranjang</h2>
@@ -47,7 +47,8 @@
                     
                     <div class="col-lg-12">
                         <div class="">
-                            <form action="{{url('keranjang', $produk->id)}}" method="post">
+                            
+                            <form action="{{url('keranjang')}}" method="post">
                                 @csrf
                               <div class="form-row">
                                 <div class="form-group col-md-8">
@@ -71,9 +72,6 @@
                                   <label for="jumlah">Jumlah</label>
                                   <input type="number" min="1" max="{{$produk->stok}}" class="form-control" id="jumlah" name="jumlah" required="">
                                 </div>
-                                <div class="form-group col-md-2">
-                                  <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{date('d-M-Y')}}" hidden="">
-                                </div>
                               </div>
 
                               <button type="submit" class="btn btn-info">Checkout</button>
@@ -81,7 +79,7 @@
                               <div class="form-row mt-2">
                                 <div class="form-group col-md-8">
                                   <label for="desk">Deskripsi</label>
-                                  <textarea id="desk" class="form-control" rows="45" readonly="">{{$produk->deskripsi}}</textarea>
+                                  <textarea id="desk" class="form-control" rows="10" readonly="">{{$produk->deskripsi}}</textarea>
                                 </div>
                               </div>
                               

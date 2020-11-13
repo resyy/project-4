@@ -39,6 +39,13 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
+                <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          @include('template.utils.notif')
+        </div>
+      </div>
+    </div>
                 <div class="masthead-subheading">Welcome To Our Store!</div>
                 <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#team">Yuk Belanja</a>
