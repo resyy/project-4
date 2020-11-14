@@ -24,6 +24,7 @@ use App\Http\Controllers\UserController;
 Route::get('admin/beranda', [HomeController::class, 'showBeranda']);
 Route::get('admin/kategori', [HomeController::class, 'showKategori']);
 Route::get('registrasi', [AuthController::class, 'registrasi']);
+Route::post('registrasi', [AuthController::class, 'store']);
 
 // Halaman Admin 
 Route::prefix('admin')->middleware('auth')->group(function(){

@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use App\Models\User;
 /**
  * 
  */
@@ -32,6 +33,18 @@ class AuthController extends Controller
 	function registrasi()
 	{
 		return view('registrasi');
+	}
+
+	function store()
+	{
+		$user = new User;
+		$user->nama = request('nama');
+		$user->username = request('username');
+		$user->email = request('email');
+		$user->password = bcrypt(request('password'));
+		$user->save();
+
+		return redirect('login')->with('success', 'Selamat! Anda Berhasil Mendaftar. Silahkan Login');
 	}
 	
 	function forgotPassword()
