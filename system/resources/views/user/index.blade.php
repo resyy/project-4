@@ -30,8 +30,8 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('/')}}">Beranda</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Produk</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('checkout')}}">Checkout</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('admin/login')}}">Login</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('admin/registrasi')}}">Registrasi</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('login')}}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('registrasi')}}">Registrasi</a></li>
                     </ul>
                 </div>
             </div>

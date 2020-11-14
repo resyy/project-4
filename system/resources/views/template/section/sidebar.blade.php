@@ -20,7 +20,13 @@
           <img src="{{url('public')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Utin Chindy Selvira</a>
+          <a href="#" class="d-block">
+            @if(Auth::check())
+            {{request()->user()->nama}}
+            @else
+              Silahkan login terlebih dahulu
+            @endif
+          </a>
         </div>
       </div>
 
@@ -53,9 +59,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+                <a href="{{ url('admin/user') }}" class="nav-link {{checkRouteActive('registrasi')}}">
+                  <i class="far fa-user nav-icon"></i>
+                  <p>User</p>
+                </a>
+              </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-user-cog"></i>
               <p>
                 Pengaturan Akun
                 <i class="right fas fa-angle-left"></i>
@@ -63,13 +75,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('/login') }}" class="nav-link {{checkRouteActive('login')}}">
+                <a href="{{ url('login') }}" class="nav-link {{checkRouteActive('login')}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Login</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/registrasi') }}" class="nav-link {{checkRouteActive('registrasi')}}">
+                <a href="{{ url('registrasi') }}" class="nav-link {{checkRouteActive('registrasi')}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Registrasi</p>
                 </a>

@@ -29,7 +29,11 @@
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-        Utin Chindy Selvira
+        @if(Auth::check())
+            {{request()->user()->nama}}
+            @else
+              Silahkan login terlebih dahulu
+            @endif
           <i class="far fa-user"></i>
           <span class="badge badge-warning navbar-badge"></span>
         </a>
@@ -41,7 +45,7 @@
             
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{{url('login')}}" class="dropdown-item">
+          <a href="{{url('logout')}}" class="dropdown-item">
             <i class="fas fa-users mr-2"></i>Logout
           </a>
           
